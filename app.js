@@ -8,6 +8,7 @@ const sliderContainer = document.getElementById("sliders");
 const preloader = document.getElementById("preloader");
 const notFound = document.getElementById("not-found");
 const backHomeBtn = document.querySelector(".back-home");
+const countImage = document.getElementById("image-count");
 // selected image
 let sliders = [];
 
@@ -54,12 +55,14 @@ const selectItem = (event, img) => {
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
+    countImage.innerText = parseInt(++countImage.innerText);
   } else {
     for (let i = 0; i < sliders.length; i++) {
       if (sliders[i] === img) {
         sliders.splice(i, 1);
       }
     }
+    countImage.innerText = parseInt(--countImage.innerText);
   }
 };
 var timer;
